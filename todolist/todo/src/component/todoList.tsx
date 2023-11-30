@@ -5,7 +5,7 @@ import { db } from "../Firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons/faSquareXmark";
-import { useNavigate } from "react-router-dom";
+import Todo from "./todo";
 
 const Lists = styled.div``;
 const List = styled.div`
@@ -26,9 +26,9 @@ const List = styled.div`
 
 interface Todo {
     id: string;
-    todo: string;
-    status: boolean,
-    createdAt: number;
+    todo?: string;
+    status?: boolean,
+    createdAt?: number;
 }
 
 export default function TodoList() {
@@ -48,6 +48,7 @@ export default function TodoList() {
                 }));
 
                 setTodos(todoData);
+                
             } catch(err) {
                 
             } finally {
