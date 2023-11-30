@@ -5,7 +5,7 @@ import { db } from "../Firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons/faSquareXmark";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Lists = styled.div``;
 const List = styled.div`
@@ -26,9 +26,9 @@ const List = styled.div`
 
 interface Todo {
     id: string;
-    todo: string;
-    status: boolean,
-    createdAt: number;
+    todo?: string;
+    status?: boolean,
+    createdAt?: number;
 }
 
 export default function TodoList() {
@@ -71,7 +71,10 @@ export default function TodoList() {
                     return  <List key={`list${todoItem.createdAt}${i}`}>
                                 <label data-id={todoItem.id}>
                                     <div className="todoWrap">
-                                        <span className="todoCont" ><input type="checkbox" checked={`${todoItem.status}`} onChange={inputChecked}/>{todoItem.todo}</span>
+                                        <span className="todoCont" >
+                                            {/* <input type="checkbox" checked={`${todoItem.status}`} onChange={inputChecked}/>{todoItem.todo} */}
+                                            <input type="checkbox" onChange={inputChecked}/>{todoItem.todo}
+                                        </span>
                                         <span className="todoBtn">
                                             <button className="update"><FontAwesomeIcon icon={faPenToSquare} /></button>
                                             <button className="delete"><FontAwesomeIcon icon={faSquareXmark}/></button>

@@ -35,7 +35,7 @@ const Button = styled.button`
 export default function TodoInput() { 
     const [userData, setUserData] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<any | null>(null);
+    const [setError] = useState<any | null>(null);
 
     const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
         const userInput = e.currentTarget.value;
