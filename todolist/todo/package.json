@@ -9,7 +9,11 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
+<<<<<<< HEAD
     "deploy": "gh-pages -d dist"
+=======
+    "deploy": "gh-pages -d build"
+>>>>>>> e24fab61afacc14fe8a0704fe6f449c35c924947
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
@@ -17,6 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/firebase": "^3.2.1",
     "firebase": "^10.6.0",
+    "gh-pages": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
@@ -34,5 +39,6 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
-  }
+  },
+  "homepage": "https://yohnsuh.github.io/react-todo/"
 }
