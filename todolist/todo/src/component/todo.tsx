@@ -3,7 +3,8 @@ import TodoInput from "./todoInput";
 import TodoList from "./todoList";
 
 const Wrap = styled.div`
-    width : 400px;
+    width: 80%;
+    max-width : 400px;
     margin : 30px auto;
     text-align : center;
     background : #fff;
