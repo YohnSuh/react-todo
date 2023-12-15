@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { db } from '../Firebase';
 import { collection, addDoc } from "firebase/firestore"; 
 import { updateDoc } from 'firebase/firestore/lite';
+// import { addDoc, collection, updateDoc } from "firebase/firestore";
 
 const Form = styled.form`
     position : relative;
@@ -34,7 +35,7 @@ const Button = styled.button`
 
 export default function TodoInput() { 
     const [userData, setUserData] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
     const [setError] = useState<any | null>(null);
 
     const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
@@ -44,38 +45,43 @@ export default function TodoInput() {
 
     const handleSubmit = async(e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        if(!userData) {
+            alert("할 일을 입력해주세요!");
+            return;
+        }
         try {
-            setIsLoading(true);
+            // setIsLoading(true);
             const docRef = await addDoc(collection(db, "todo"), {
                 todo: userData,
                 status : false,
                 createdAt: Date.now(),
             });
-            
+            setUserData("");
             await updateDoc(docRef, {
                 id: docRef.id
             });
-            console.log(userData);
-
-            setUserData("");
+            
         } catch (err) {
             console.log(err);
             setError(err);
         } finally {
-            setIsLoading(false);
+            // setIsLoading(false);
+            
         }
     }
 
     return (
         <>
             <Form onSubmit={handleSubmit}>
-                {
+                {/* {
                     isLoading ? (
                         <div>Loading...</div>
                     ) : null
-                }
-                <Input onChange={handleInput} value={userData} type="text" placeholder="할 일을 입력해주세요." />
+                } */}
+                <Input onChange={handleInput}
+                       value={userData}
+                       type="text"
+                       placeholder="할 일을 입력해주세요." />
                 <Button type="submit">+</Button>
             </Form>
         </>
