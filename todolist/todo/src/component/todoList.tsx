@@ -14,8 +14,8 @@ import { deleteDoc, doc } from "firebase/firestore";
 const Lists = styled.div`
     text-align: right;
     & .allBtn {margin-right: 10%;}
-    & button {border: 1.5px solid #B799FF; background: white;border-radius: 5px;color: #B799FF;}
-    & button:hover {background: #B799FF; color: white;}
+    & .allBtn button {border: 1.5px solid #B799FF; background: white;border-radius: 5px;color: #B799FF;}
+    & .allBtn button:hover {background: #B799FF; color: white;}
     & .allDeleteBtn {text-align:right;font-size:10px;}
     & .trashBtn {font-size: 10px; margin-left: 5px;}
 `;
